@@ -1,7 +1,8 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-
+name: 'Ctrlplane Job Inputs'
+description: |-
+  Action to get the inputs of a job from the Ctrlplane API and make them
+  avaiable as outputs.
+author: 'sizzledev'
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
   icon: 'heart'
@@ -9,15 +10,49 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  url:
+    description: 'URL for the API'
+    default: 'https://app.ctrlplane.dev'
+  job_id:
+    description: 'Job ID'
     required: true
-    default: '1000'
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  system_id:
+    description: 'System ID'
+  system_name:
+    description: 'System name'
+
+  deployment_id:
+    description: 'Deployment ID'
+  deployment_name:
+    description: 'Deployment name'
+
+  environment_id:
+    description: 'Environment ID'
+  environment_name:
+    description: 'Environment Name'
+
+  target_id:
+    description: 'The internal target ID'
+  target_identifer:
+    description: 'The target identifier'
+  target_name:
+    description: 'The target name'
+  target_provider_id:
+    description: 'The target provider ID'
+  target_kind:
+    description: 'The target kind (e.g ClusterAPI)'
+  target_version:
+    description: 'The target version (e.g kubernetes/v1)'
+  target_config:
+    description: 'JSON object of the targets config.' # please these values are dynamic we can not split them into separate outputs.
+  target_labels:
+    description: 'JSON object of the targets labels.' # please these values are dynamic we can not split them into separate outputs.
+
+  variables:
+    description: 'JSON object of the variables' # please these values are dynamic we can not split them into separate outputs.
 
 runs:
   using: node20
